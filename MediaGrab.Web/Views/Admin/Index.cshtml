@@ -1,0 +1,22 @@
+@model MediaGrab.Web.Models.AdminOverviewViewModel
+@{
+    ViewData["Title"] = "Admin";
+}
+<div class="container py-5">
+    <h1 class="h3 mb-4">Admin overview</h1>
+    <div class="row g-4 mb-4">
+        <div class="col-md-3"><div class="mg-card p-4 text-center"><div class="h4 mb-0">@Model.TotalUsers</div><div class="small text-secondary">Users</div></div></div>
+        <div class="col-md-3"><div class="mg-card p-4 text-center"><div class="h4 mb-0">@Model.TotalJobs</div><div class="small text-secondary">Total jobs</div></div></div>
+        <div class="col-md-3"><div class="mg-card p-4 text-center"><div class="h4 mb-0">@Model.ActiveJobs</div><div class="small text-secondary">Active jobs</div></div></div>
+        <div class="col-md-3"><div class="mg-card p-4 text-center"><div class="h4 mb-0">@Model.CompletedJobs</div><div class="small text-secondary">Completed</div></div></div>
+        <div class="col-md-3"><div class="mg-card p-4 text-center"><div class="h4 mb-0">@Model.FailedJobs</div><div class="small text-secondary">Failed / rejected</div></div></div>
+        <div class="col-md-3"><div class="mg-card p-4 text-center"><div class="h4 mb-0">@Model.ActiveProviders</div><div class="small text-secondary">Active providers</div></div></div>
+        <div class="col-md-3"><div class="mg-card p-4 text-center"><div class="h4 mb-0">@((Model.TotalBytesServed / 1024.0 / 1024.0).ToString("0.#")) MB</div><div class="small text-secondary">Total served</div></div></div>
+    </div>
+    <nav class="d-flex gap-2">
+        <a class="btn btn-outline-primary btn-sm" asp-controller="Admin" asp-action="Downloads">Downloads</a>
+        <a class="btn btn-outline-primary btn-sm" asp-controller="Admin" asp-action="Users">Users</a>
+        <a class="btn btn-outline-primary btn-sm" asp-controller="Admin" asp-action="Providers">Providers</a>
+        <a class="btn btn-outline-primary btn-sm" asp-controller="Admin" asp-action="System">System</a>
+    </nav>
+</div>

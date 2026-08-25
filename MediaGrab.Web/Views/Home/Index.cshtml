@@ -1,0 +1,138 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="mg-hero">
+    <div class="container py-5 text-center">
+        <span class="badge mg-badge mb-3">Phase 2</span>
+        <h1 class="display-5 fw-bold mb-3">Grab your media, the authorized way.</h1>
+        <p class="lead text-secondary mb-4 mx-auto" style="max-width: 640px;">
+            Paste a link to content you're allowed to access. MediaGrab analyzes it, shows you what it found,
+            and lets you download it once you pick a format. Nothing sketchy, no DRM bypassing.
+        </p>
+
+        <form id="analyzeForm" class="mg-url-form mx-auto" style="max-width: 640px;">
+            <div class="input-group input-group-lg shadow-sm">
+                <input type="url" id="urlInput" name="url" class="form-control" placeholder="https://example.com/your-file"
+                       required maxlength="2048" aria-label="URL to analyze" />
+                <button class="btn btn-primary" type="submit" id="analyzeButton">Analyze</button>
+            </div>
+            <div id="analyzeResult" class="mt-3 text-start small" role="status" aria-live="polite"></div>
+        </form>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="h3 text-center mb-4">Supported content</h2>
+        <p class="text-secondary text-center mb-5 mx-auto" style="max-width: 640px;">
+            Phase 1 ships the architecture and one reference provider for direct, publicly accessible file
+            links. Additional authorized providers will appear here as they're enabled - never silently and
+            never by circumventing a platform's terms.
+        </p>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="mg-card p-4 h-100">
+                    <h3 class="h6">Direct file links</h3>
+                    <p class="small text-secondary mb-0">Publicly hosted files with no login, paywall, or DRM involved.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mg-card p-4 h-100">
+                    <h3 class="h6">More providers</h3>
+                    <p class="small text-secondary mb-0">Coming soon, pending a compliant, authorized integration.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mg-card p-4 h-100">
+                    <h3 class="h6">Your own uploads</h3>
+                    <p class="small text-secondary mb-0">Planned for a future phase alongside account storage.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a asp-controller="Home" asp-action="SupportedSites" class="btn btn-outline-primary btn-sm">See full list</a>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 mg-section-alt">
+    <div class="container">
+        <h2 class="h3 text-center mb-5">Why MediaGrab</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <h3 class="h6">Built to respect access rules</h3>
+                <p class="small text-secondary">We only work with content you're authorized to access - no DRM bypassing, no paywall circumvention.</p>
+            </div>
+            <div class="col-md-4">
+                <h3 class="h6">Transparent status</h3>
+                <p class="small text-secondary">Every submission becomes a trackable job so you always know exactly what's happening.</p>
+            </div>
+            <div class="col-md-4">
+                <h3 class="h6">Extensible by design</h3>
+                <p class="small text-secondary">New authorized providers slot into the same architecture without touching the core app.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <h2 class="h3 mb-3">Security &amp; privacy</h2>
+                <ul class="small text-secondary">
+                    <li>URLs are validated and normalized before anything else touches them.</li>
+                    <li>Requests to internal/private network addresses are rejected outright.</li>
+                    <li>Passwords are hashed by ASP.NET Core Identity - we never see or store them in plain text.</li>
+                    <li>Errors shown to you never include stack traces, file paths, or credentials.</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="mg-card p-4">
+                    <p class="small text-secondary mb-0">
+                        Read the full details in our <a asp-controller="Home" asp-action="Privacy">privacy policy</a>
+                        and <a asp-controller="Home" asp-action="Terms">terms of service</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 mg-section-alt">
+    <div class="container">
+        <h2 class="h3 text-center mb-4">Frequently asked questions</h2>
+        <div class="accordion mx-auto" id="homeFaq" style="max-width: 720px;">
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        Will MediaGrab download from any site?
+                    </button>
+                </h3>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#homeFaq">
+                    <div class="accordion-body small text-secondary">
+                        No. Only sources with an authorized provider are supported, and MediaGrab never bypasses
+                        logins, paywalls, or DRM.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        Is this ready to use today?
+                    </button>
+                </h3>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#homeFaq">
+                    <div class="accordion-body small text-secondary">
+                        Yes. Accounts, URL analysis, and downloading direct file links are all live. Additional
+                        authorized providers will be added over time.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center mt-4">
+            <a asp-controller="Home" asp-action="Faq" class="btn btn-outline-primary btn-sm">See all FAQs</a>
+        </p>
+    </div>
+</section>

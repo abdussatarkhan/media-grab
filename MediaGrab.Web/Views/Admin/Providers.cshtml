@@ -1,0 +1,26 @@
+@model IReadOnlyList<MediaGrab.Web.Models.AdminProviderRowViewModel>
+@{
+    ViewData["Title"] = "Admin - Providers";
+}
+<div class="container py-5">
+    <h1 class="h3 mb-4">Providers</h1>
+    @if (!Model.Any())
+    {
+        <p class="text-secondary small">No SupportedProvider catalog rows yet. The active in-code provider (Direct File Link) works independently of this table; seed a row here once you want it manageable from the UI.</p>
+    }
+    <div class="table-responsive">
+        <table class="table align-middle">
+            <thead><tr><th>Name</th><th>Key</th><th>Status</th></tr></thead>
+            <tbody>
+                @foreach (var row in Model)
+                {
+                    <tr>
+                        <td>@row.Name</td>
+                        <td><code>@row.Key</code></td>
+                        <td><span class="badge bg-secondary">@row.Status</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

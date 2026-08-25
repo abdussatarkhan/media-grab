@@ -1,0 +1,23 @@
+@model IReadOnlyList<MediaGrab.Web.Models.AdminDownloadRowViewModel>
+@{
+    ViewData["Title"] = "Admin - Downloads";
+}
+<div class="container py-5">
+    <h1 class="h3 mb-4">Downloads</h1>
+    <div class="table-responsive">
+        <table class="table align-middle">
+            <thead><tr><th>User</th><th>Status</th><th>Source</th><th>Submitted</th></tr></thead>
+            <tbody>
+                @foreach (var row in Model)
+                {
+                    <tr>
+                        <td>@row.UserEmail</td>
+                        <td><span class="badge bg-secondary">@row.Status</span></td>
+                        <td class="text-truncate" style="max-width: 360px;">@row.SourceUrl</td>
+                        <td>@row.CreatedAtUtc.ToString("g")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

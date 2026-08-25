@@ -1,0 +1,17 @@
+@model MediaGrab.Web.Models.AdminSystemViewModel
+@{
+    ViewData["Title"] = "Admin - System";
+}
+<div class="container py-5">
+    <h1 class="h3 mb-4">System</h1>
+    <div class="mg-card p-4">
+        <dl class="row mb-0">
+            <dt class="col-sm-4">Max concurrent jobs</dt><dd class="col-sm-8">@Model.MaxConcurrentJobs</dd>
+            <dt class="col-sm-4">Max queued jobs</dt><dd class="col-sm-8">@Model.MaxQueuedJobs</dd>
+            <dt class="col-sm-4">Approximate queue depth</dt><dd class="col-sm-8">@Model.ApproximateQueueDepth</dd>
+            <dt class="col-sm-4">Max file size</dt><dd class="col-sm-8">@((Model.MaxFileSizeBytes / 1024.0 / 1024.0 / 1024.0).ToString("0.##")) GB</dd>
+            <dt class="col-sm-4">File retention</dt><dd class="col-sm-8">@Model.FileRetentionMinutes minutes</dd>
+        </dl>
+    </div>
+    <p class="small text-secondary mt-3">These values come from the MediaGrab section of appsettings/environment variables. Change them there, not in code.</p>
+</div>

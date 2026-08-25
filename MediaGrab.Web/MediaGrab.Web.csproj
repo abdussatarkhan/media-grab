@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>MediaGrab.Web</RootNamespace>
+    <UserSecretsId>mediagrab-web-secrets</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MediaGrab.Application\MediaGrab.Application.csproj" />
+    <ProjectReference Include="..\MediaGrab.Domain\MediaGrab.Domain.csproj" />
+    <ProjectReference Include="..\MediaGrab.Infrastructure\MediaGrab.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,53 @@
+@model MediaGrab.Web.Models.HistoryViewModel
+@{
+    ViewData["Title"] = "History";
+}
+<div class="container py-5">
+    <h1 class="h3 mb-4">History</h1>
+
+    @if (!Model.Jobs.Any())
+    {
+        <p class="text-secondary">You haven't submitted any URLs yet.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>File</th>
+                        <th>Size</th>
+                        <th>Submitted</th>
+                        <th>Completed</th>
+                        <th>Expires</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var job in Model.Jobs)
+                    {
+                        <tr>
+                            <td><span class="badge bg-secondary">@job.Status</span></td>
+                            <td>@(job.FileName ?? "-")</td>
+                            <td>@(job.FileSizeBytes.HasValue ? $"{job.FileSizeBytes / 1024.0 / 1024.0:0.##} MB" : "-")</td>
+                            <td>@job.CreatedAtUtc.ToString("g")</td>
+                            <td>@(job.CompletedAtUtc?.ToString("g") ?? "-")</td>
+                            <td>@(job.ExpiresAtUtc?.ToString("g") ?? "-")</td>
+                            <td>
+                                @if (job.CanDownload)
+                                {
+                                    <a class="btn btn-sm btn-primary" href="/api/media/file/@job.JobId">Download</a>
+                                }
+                                else if (!string.IsNullOrEmpty(job.ErrorMessage))
+                                {
+                                    <span class="text-danger small">@job.ErrorMessage</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

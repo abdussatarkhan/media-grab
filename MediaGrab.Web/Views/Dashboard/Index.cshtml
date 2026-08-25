@@ -1,0 +1,95 @@
+@model MediaGrab.Web.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<div class="container py-5">
+    <h1 class="h3 mb-1">Dashboard</h1>
+    <p class="text-secondary">Welcome back, @User.Identity!.Name.</p>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-3">
+            <div class="mg-card p-4 text-center">
+                <div class="h4 mb-0">@Model.TotalDownloads</div>
+                <div class="small text-secondary">Total downloads</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="mg-card p-4 text-center">
+                <div class="h4 mb-0">@Model.ActiveJobs</div>
+                <div class="small text-secondary">Active jobs</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="mg-card p-4 text-center">
+                <div class="h4 mb-0">@Model.CompletedJobs</div>
+                <div class="small text-secondary">Completed</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="mg-card p-4 text-center">
+                <div class="h4 mb-0">@Model.FailedJobs</div>
+                <div class="small text-secondary">Failed</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <a asp-controller="Dashboard" asp-action="History" class="mg-card p-4 d-block text-decoration-none">
+                <h2 class="h6">History</h2>
+                <p class="small text-secondary mb-0">View your past submissions.</p>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Dashboard" asp-action="Settings" class="mg-card p-4 d-block text-decoration-none">
+                <h2 class="h6">Settings</h2>
+                <p class="small text-secondary mb-0">Manage your account.</p>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Home" asp-action="Index" class="mg-card p-4 d-block text-decoration-none">
+                <h2 class="h6">New analysis</h2>
+                <p class="small text-secondary mb-0">Submit another URL.</p>
+            </a>
+        </div>
+    </div>
+
+    <h2 class="h5 mb-3">Recent jobs</h2>
+    @if (!Model.RecentJobs.Any())
+    {
+        <p class="text-secondary small">No jobs yet - submit a URL from the home page to get started.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>File</th>
+                        <th>Size</th>
+                        <th>Submitted</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var job in Model.RecentJobs)
+                    {
+                        <tr>
+                            <td><span class="badge bg-secondary">@job.Status</span></td>
+                            <td>@(job.FileName ?? "-")</td>
+                            <td>@(job.FileSizeBytes.HasValue ? $"{job.FileSizeBytes / 1024.0 / 1024.0:0.##} MB" : "-")</td>
+                            <td>@job.CreatedAtUtc.ToString("g")</td>
+                            <td>
+                                @if (job.CanDownload)
+                                {
+                                    <a class="btn btn-sm btn-primary" href="/api/media/file/@job.JobId">Download</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

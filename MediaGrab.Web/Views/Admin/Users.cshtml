@@ -1,0 +1,22 @@
+@model IReadOnlyList<MediaGrab.Web.Models.AdminUserRowViewModel>
+@{
+    ViewData["Title"] = "Admin - Users";
+}
+<div class="container py-5">
+    <h1 class="h3 mb-4">Users</h1>
+    <div class="table-responsive">
+        <table class="table align-middle">
+            <thead><tr><th>Email</th><th>Joined</th><th>Jobs</th></tr></thead>
+            <tbody>
+                @foreach (var row in Model)
+                {
+                    <tr>
+                        <td>@row.Email</td>
+                        <td>@row.CreatedAtUtc.ToString("g")</td>
+                        <td>@row.JobCount</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
