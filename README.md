@@ -1,5 +1,14 @@
 # MediaGrab — Enterprise Media Processing & Ingestion Service
 
+<div align="center">
+
+[![Daily Streak](https://img.shields.io/badge/Daily%20Streak-Active%20%F0%9F%94%A5-brightgreen?style=flat-square&logo=github)](https://github.com/abdussatarkhan)
+[![Master Portfolio](https://img.shields.io/badge/Portfolio-50%2B%20Enterprise%20Projects-0e75b6?style=flat-square&logo=github)](https://github.com/abdussatarkhan/abdussatarkhan)
+[![Author: Abdussatar](https://img.shields.io/badge/Author-Abdussatar-24292e?style=flat-square&logo=github)](https://github.com/abdussatarkhan)
+
+</div>
+
+
 [![CI](https://github.com/abdussatarkhan/media-grab/actions/workflows/ci.yml/badge.svg)](https://github.com/abdussatarkhan/media-grab/actions)
 [![.NET](https://img.shields.io/badge/.NET_8-ASP.NET_Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://learn.microsoft.com/en-us/dotnet/) [![C#](https://img.shields.io/badge/C%23-Clean_Architecture-239120?style=for-the-badge&logo=csharp&logoColor=white)](https://learn.microsoft.com/en-us/dotnet/csharp/) [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-EF_Core-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/) [![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![Author](https://img.shields.io/badge/Author-Abdussatar-E50914?style=for-the-badge&logo=github&logoColor=white)](https://github.com/abdussatarkhan)
@@ -70,3 +79,15 @@ For technical discussions, collaboration, or queries, feel free to reach out via
 ## 📜 License
 
 This project is licensed under the **MIT License** — see the LICENSE file for details.
+
+
+---
+
+<div align="center">
+
+### 👨‍💻 Maintained by [Abdussatar (@abdussatarkhan)](https://github.com/abdussatarkhan)
+Part of the **[Master Enterprise Data Analytics & AI Portfolio](https://github.com/abdussatarkhan/abdussatarkhan)**.
+
+⭐ If you find this repository valuable, consider dropping a star! ⭐
+
+</div>
