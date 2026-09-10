@@ -1,5 +1,6 @@
 # MediaGrab — Enterprise Media Processing & Ingestion Service
 
+[![CI](https://github.com/abdussatarkhan/media-grab/actions/workflows/ci.yml/badge.svg)](https://github.com/abdussatarkhan/media-grab/actions)
 [![.NET](https://img.shields.io/badge/.NET_8-ASP.NET_Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://learn.microsoft.com/en-us/dotnet/) [![C#](https://img.shields.io/badge/C%23-Clean_Architecture-239120?style=for-the-badge&logo=csharp&logoColor=white)](https://learn.microsoft.com/en-us/dotnet/csharp/) [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-EF_Core-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/) [![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![Author](https://img.shields.io/badge/Author-Abdussatar-E50914?style=for-the-badge&logo=github&logoColor=white)](https://github.com/abdussatarkhan)
 
@@ -46,6 +47,16 @@ source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 # Install dependencies (if requirements.txt exists)
 pip install -r requirements.txt
 ```
+
+---
+
+## 🗺️ Roadmap & Upcoming Features
+
+- [x] ASP.NET Core Clean Architecture (Domain, App, Infra, Web)
+- [x] Entity Framework Core & PostgreSQL persistence
+- [ ] Docker Compose multi-container setup (Web API + PostgreSQL)
+- [ ] Swagger OpenAPI interactive request/response documentation
+- [ ] Cloud object storage integration (AWS S3 / Azure Blob)
 
 ---
 
